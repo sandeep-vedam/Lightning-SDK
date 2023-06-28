@@ -18,54 +18,24 @@
  */
 
 import { initUtils } from '../Utils'
-import { initProfile } from '@metrological/sdk'
-import { initMetrics } from '@metrological/sdk'
-import { initLightningSdkPlugin } from '@metrological/sdk'
 import { initSettings } from '../Settings'
 import { initMediaPlayer } from '../MediaPlayer'
-import { initVideoPlayer } from '@metrological/sdk'
 import { initStorage } from '../Storage'
-import { initAds } from '../Ads'
 import { initRouter } from '../Router'
-import { initTV } from '@metrological/sdk'
-import { initPurchase } from '@metrological/sdk'
-import { initPin } from '@metrological/sdk'
-import { initMetadata } from '@metrological/sdk'
 import Application from '../Application'
-import Settings from '../Settings'
-import Log from '../Log'
-import Ads from '../Ads'
-import Lightning from '../Lightning'
 
 export let ApplicationInstance
 
 export default (App, appSettings, platformSettings, appData) => {
   initSettings(appSettings, platformSettings)
   initUtils(platformSettings)
-  initMetadata(appSettings)
   initStorage()
   // Initialize plugins
   if (platformSettings.plugins) {
-    platformSettings.plugins.profile && initProfile(platformSettings.plugins.profile)
-    platformSettings.plugins.metrics && initMetrics(platformSettings.plugins.metrics)
     platformSettings.plugins.mediaPlayer && initMediaPlayer(platformSettings.plugins.mediaPlayer)
-    platformSettings.plugins.mediaPlayer && initVideoPlayer(platformSettings.plugins.mediaPlayer)
-    platformSettings.plugins.ads && initAds(platformSettings.plugins.ads)
     platformSettings.plugins.router && initRouter(platformSettings.plugins.router)
-    platformSettings.plugins.tv && initTV(platformSettings.plugins.tv)
-    platformSettings.plugins.purchase && initPurchase(platformSettings.plugins.purchase)
-    platformSettings.plugins.pin && initPin(platformSettings.plugins.pin)
   }
   const app = Application(App, appData, platformSettings)
-
-  initLightningSdkPlugin.log = Log
-  initLightningSdkPlugin.settings = Settings
-  initLightningSdkPlugin.ads = Ads
-  initLightningSdkPlugin.lightning = Lightning
-
   ApplicationInstance = new app(appSettings)
-
-  initLightningSdkPlugin.appInstance = ApplicationInstance
-
   return ApplicationInstance
 }

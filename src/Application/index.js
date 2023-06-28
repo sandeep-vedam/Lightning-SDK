@@ -22,7 +22,6 @@ import Deepmerge from 'deepmerge'
 import { isPlainObject } from 'is-plain-object'
 import Lightning from '../Lightning'
 import Locale from '../Locale'
-import Metrics from '../Metrics'
 import VersionLabel from '../VersionLabel'
 import FpsCounter from '../FpsCounter'
 import Log from '../Log'
@@ -101,7 +100,7 @@ export default function(App, appData, platformSettings) {
   return class Application extends Lightning.Application {
     constructor(options) {
       const config = Deepmerge(defaultOptions, options, {
-        isMergeableObject: isPlainObject
+        isMergeableObject: isPlainObject,
       })
 
       super(config)
@@ -154,8 +153,6 @@ export default function(App, appData, platformSettings) {
         App.colors && this.loadColors(App.colors()),
       ])
         .then(() => {
-          Metrics.app.loaded()
-
           this.w = this.config.stage.w / this.config.stage.precision
           this.h = this.config.stage.h / this.config.stage.precision
 
