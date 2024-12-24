@@ -22,12 +22,12 @@ import Deepmerge from 'deepmerge'
 import { isPlainObject } from 'is-plain-object'
 import Lightning from '../Lightning'
 import Locale from '../Locale'
-import Metrics from '../Metrics'
+import { Metrics } from '@metrological/sdk'
 import VersionLabel from '../VersionLabel'
 import FpsCounter from '../FpsCounter'
 import Log from '../Log'
 import Settings from '../Settings'
-import { initLanguage } from '../Language'
+import { initLanguage } from '@metrological/sdk'
 import Utils from '../Utils'
 import Registry from '../Registry'
 import { initColors } from '../Colors'
@@ -101,7 +101,7 @@ export default function(App, appData, platformSettings) {
   return class Application extends Lightning.Application {
     constructor(options) {
       const config = Deepmerge(defaultOptions, options, {
-        isMergeableObject: isPlainObject
+        isMergeableObject: isPlainObject,
       })
 
       super(config)

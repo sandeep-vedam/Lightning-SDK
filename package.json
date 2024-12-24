@@ -26,7 +26,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.11.5",
     "@lightningjs/core": "^2.13.1",
-    "@metrological/sdk": "^1.0.2",
+    "@metrological/sdk": "https://github.com/sandeep-vedam/metrological-sdk.git#feat/sdksplit",
     "@michieljs/execute-as-promise": "^1.0.0",
     "deepmerge": "^4.2.2",
     "is-plain-object": "^5.0.0",

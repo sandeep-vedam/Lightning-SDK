@@ -18,7 +18,7 @@
  */
 
 import Lightning from '../Lightning'
-import Metrics from '../Metrics'
+import Metrics from '@metrological/sdk'
 import Settings from '../Settings'
 import Log from '../Log'
 
