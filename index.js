@@ -18,15 +18,11 @@
  */
 
 export { default as Accessibility } from './src/Accessibility'
-export { default as Ads } from './src/Ads'
 export { AppData } from './src/Application'
 export { default as Application } from './src/Application'
 export { default as Colors } from './src/Colors'
-export { default as Img } from './src/Img'
-export { default as Keyboard } from './src/Keyboard'
 export { default as Launch } from './src/Launch'
 export { default as Lightning } from './src/Lightning'
-export { default as Locale } from './src/Locale'
 export { default as Language } from './src/Language'
 export { default as Log } from './src/Log'
 export { default as Registry } from './src/Registry'
