@@ -21,7 +21,6 @@ import { initUtils } from '../Utils'
 import { initSettings } from '../Settings'
 import { initStorage } from '../Storage'
 import { initRouter } from '../Router'
-import { initAds } from '../Ads'
 import Application from '../Application'
 
 export let ApplicationInstance
@@ -32,7 +31,6 @@ export default (App, appSettings, platformSettings, appData) => {
   initStorage()
   // Initialize plugins
   if (platformSettings.plugins) {
-    platformSettings.plugins.ads && initAds(platformSettings.plugins.ads)
     platformSettings.plugins.router && initRouter(platformSettings.plugins.router)
   }
   const app = Application(App, appData, platformSettings)

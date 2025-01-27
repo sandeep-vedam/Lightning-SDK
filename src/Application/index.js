@@ -149,7 +149,6 @@ export default function(App, appData, platformSettings) {
       Promise.all([
         this.loadFonts((App.config && App.config.fonts) || (App.getFonts && App.getFonts()) || []),
         // to be deprecated
-        Locale.load((App.config && App.config.locale) || (App.getLocale && App.getLocale())),
         App.language && this.loadLanguage(App.language()),
         App.colors && this.loadColors(App.colors()),
       ])
